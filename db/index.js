@@ -7,7 +7,7 @@ const gridSchema = mongoose.Schema({
   PropertyName: String,
   PropertyLocation: String,
   PropertyAllocation: Number,
-  PropertyImages: [Number],
+  PropertyImages: [String],
   SimilarProperty: [Number]
 });
 
@@ -28,5 +28,4 @@ const save = (obj) => {
     if (err) { throw err; }
   });
 };
-save();
 module.exports.save = save;
