@@ -1,12 +1,10 @@
 /* eslint-disable no-console */
 const request = require('request');
 const Faker = require('faker');
-const getImage = require('./getImages')
-
-
+const getImage = require('./getImages');
 
 let image = () => {
-    request('https://picsum.photos/v2/list?page=2&limit=1', (error, response, body) => {
+  request('https://picsum.photos/v2/list?page=2&limit=1', (error, response, body) => {
     if (error) {
       return error;
     }
