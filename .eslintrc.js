@@ -24,6 +24,8 @@ module.exports = {
   rules: {
     'comma-dangle': 0,
     'no-undef':0,
-    'no-console':0
+    'no-console':0,
+    'no-unused-vars':0,
+    'import/no-extraneous-dependencies': 0
   },
 };

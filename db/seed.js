@@ -3,21 +3,18 @@ const request = require('request');
 const Faker = require('faker');
 const getImage = require('./getImages');
 
-let image = () => {
+const image = () => {
   request('https://picsum.photos/v2/list?page=2&limit=1', (error, response, body) => {
     if (error) {
       return error;
     }
-    console.log("Pics Received");
+    console.log('Pics Received');
     console.log(JSON.parse(body));
     return JSON.parse(body);
 
   //  console.log(JSON.parse(body));
   });
 };
-
-
-
 
 const name = Faker.random.words();
 const location = Faker.address.stateAbbr();
@@ -32,4 +29,3 @@ const obj = {
   PropertyImages: [getimage]
 };
 console.log(obj);
-//seed.save(obj);
