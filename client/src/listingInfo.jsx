@@ -23,12 +23,11 @@ const ListingTitle = styled.h6`
 `;
 const ListingLocation = styled.span`
   font-family: Avenir-Roman;
-  font-size:9px;
+  font-size:10px;
   color: #6a707a;
 `;
 
-const Icon = styled(UserFriends)`
-<i className="fas fa-user-friends"></i>
+const PeopleIcon = styled(UserFriends)`
 `;
 
 const listingInfo = (props) => (
@@ -37,8 +36,8 @@ const listingInfo = (props) => (
       {props.propName}
     </ListingTitle>
     <ListingLocation>
-      Noe Valley &nbsp;
-      <Icon size="10" />
+      { props.propLocation } &nbsp;
+      <PeopleIcon size="10" />
        &nbsp;12
     </ListingLocation>
   </Container>
