@@ -36,53 +36,32 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      randomUrl: () => {
-        const number = Math.round(Math.random() * 200, 0);
-        return (`https://i.picsum.photos/id/${number}/299/175.jpg`);
-      },
       propertyNames: Names.propertyNames,
-      propertyLocations: Names.propertyLocations,
-      propertyImage: Names.propertyImages[0]
+      propertyLocations: Names.propertyLocations
     };
-    this.rightArrow = this.rightArrow.bind(this);
-  }
-
-  rightArrow() {
-    this.setState({
-      propertyImage: Names.propertyImages[1]
-    });
   }
 
   render() {
+    const items = [];
+    for (let i = 0; i <= 5; i += 1) {
+      items.push(
+        <Container>
+          <CarouselWrapper propInfo={i} />
+          <ListingInfo
+            propName={this.state.propertyNames[i]}
+            propLocation={this.state.propertyLocations[i]}
+          />
+        </Container>
+      );
+    }
     return (
       <PageContainer>
         <Text>
           Similar spaces you might also be interested in
         </Text>
-        <Container>
-          <CarouselWrapper />
-          <ListingInfo propName={this.state.propertyNames[0]} propLocation={this.state.propertyLocations[0]} />
-        </Container>
-        <Container>
-          <CarouselWrapper />
-          <ListingInfo propName={this.state.propertyNames[1]} propLocation={this.state.propertyLocations[1]} />
-        </Container>
-        <Container>
-          <CarouselWrapper />
-          <ListingInfo propName={this.state.propertyNames[2]} propLocation={this.state.propertyLocations[2]} />
-        </Container>
-        <Container>
-          <CarouselWrapper />
-          <ListingInfo propName={this.state.propertyNames[3]} propLocation={this.state.propertyLocations[3]} />
-        </Container>
-        <Container>
-          <CarouselWrapper />
-          <ListingInfo propName={this.state.propertyNames[4]} propLocation={this.state.propertyLocations[4]} />
-        </Container>
-        <Container>
-          <CarouselWrapper />
-          <ListingInfo propName={this.state.propertyNames[5]} propLocation={this.state.propertyLocations[5]} />
-        </Container>
+        {
+          items
+        }
       </PageContainer>
     );
   }

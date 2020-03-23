@@ -27,6 +27,9 @@ const ListingLocation = styled.span`
   color: #6a707a;
 `;
 
+const ListingAllocation = styled(ListingLocation)`
+`;
+
 const PeopleIcon = styled(UserFriends)`
 `;
 
@@ -36,9 +39,13 @@ const listingInfo = (props) => (
       {props.propName}
     </ListingTitle>
     <ListingLocation>
-      { props.propLocation } &nbsp;
+      { props.propLocation }
+      &nbsp;
       <PeopleIcon size="10" />
-       &nbsp;12
+       &nbsp;
+      <ListingAllocation>
+        13
+      </ListingAllocation>
     </ListingLocation>
   </Container>
 );

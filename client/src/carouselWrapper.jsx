@@ -1,5 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import $ from 'jquery';
 import styled from 'styled-components';
 import { ArrowIosForwardOutline, ArrowIosBackOutline } from '@styled-icons/evaicons-outline/';
 import Images from '../propertyInfo';
@@ -63,12 +64,22 @@ class carouselWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      info: [],
       counter: 0,
-      propertyImage: Images.propertyImages,
       propertyRate: Images.propertyRate
     };
     this.rightArrow = this.rightArrow.bind(this);
     this.leftArrow = this.leftArrow.bind(this);
+  }
+
+  componentDidMount() {
+    $.ajax({
+      url: '/getAllImages',
+      type: 'GET',
+      success: (data) => {
+        this.setState({ info: data });
+      }
+    });
   }
 
   rightArrow() {
@@ -98,11 +109,16 @@ class carouselWrapper extends React.Component {
   }
 
   render() {
+    if (this.state.info.length === 0) {
+      return <div> Loading </div>;
+    }
     return (
       <Carousel>
         <RightArrow size="55" onClick={this.rightArrow} />
         <LeftArrow size="55" onClick={this.leftArrow} />
-        <ListingImage src={this.state.propertyImage[this.state.counter]} />
+        <ListingImage
+          src={this.state.info[this.props.propImage].PropertyImages[this.state.counter]}
+        />
         <RateBox>
           <FromHr>
             from
@@ -117,5 +133,4 @@ class carouselWrapper extends React.Component {
     );
   }
 }
-
 export default carouselWrapper;

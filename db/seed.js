@@ -1,31 +1,31 @@
 /* eslint-disable no-console */
-const request = require('request');
 const Faker = require('faker');
-const getImage = require('./getImages');
+const gridSave = require('./index');
 
-const image = () => {
-  request('https://picsum.photos/v2/list?page=2&limit=1', (error, response, body) => {
-    if (error) {
-      return error;
-    }
-    console.log('Pics Received');
-    console.log(JSON.parse(body));
-    return JSON.parse(body);
 
-  //  console.log(JSON.parse(body));
-  });
+const getimage = (num) => {
+  let string = '';
+  let arr = [];
+  for (let i = 0; i <= 6; i += 1) {
+    let randNo = Math.round((Math.random() * 640), 0);
+    string = `https://i.picsum.photos/id/${randNo}/299/175.jpg`;
+    arr.push(string);
+  }
+  return arr;
 };
 
-const name = Faker.random.words();
-const location = Faker.address.stateAbbr();
-const randomNumber = Math.round(Math.random() * 30, 0);
-const getimage = image();
+const seed = () => {
+  for (let i = 1; i <= 7; i += 1) {
+    let name = Faker.random.words();
+    let location = Faker.address.stateAbbr();
+    const randomNumber = Math.round(Math.random() * 45, 0);
 
-const obj = {
-  PropertyID: 3,
-  PropertyName: name,
-  PropertyLocation: location,
-  PropertyAllocation: randomNumber,
-  PropertyImages: [getimage]
+    gridSave.save({
+      PropertyID: i,
+      PropertyName: name,
+      PropertyLocation: location,
+      PropertyAllocation: randomNumber,
+      PropertyImages: getimage(i)
+    });
+  }
 };
-console.log(obj);
