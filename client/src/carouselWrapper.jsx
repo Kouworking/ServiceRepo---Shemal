@@ -74,7 +74,7 @@ class carouselWrapper extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/getAllImages',
+      url: 'http://localhost:2729/getAllImages',
       type: 'GET',
       success: (data) => {
         this.setState({ info: data });
@@ -84,6 +84,7 @@ class carouselWrapper extends React.Component {
 
   rightArrow() {
     const { length } = Images.propertyImages;
+    console.log(this.state.info)
     if (this.state.counter === length - 1) {
       this.setState((state) => ({
         counter: 0
@@ -117,7 +118,7 @@ class carouselWrapper extends React.Component {
         <RightArrow size="55" onClick={this.rightArrow} />
         <LeftArrow size="55" onClick={this.leftArrow} />
         <ListingImage
-          src={this.state.info[this.props.propImage].PropertyImages[this.state.counter]}
+           src={this.state.info[this.props.propInfo].PropertyImages[this.state.counter]}
         />
         <RateBox>
           <FromHr>

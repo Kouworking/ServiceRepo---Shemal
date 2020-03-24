@@ -14,16 +14,6 @@ const gridSchema = mongoose.Schema({
 
 const Grid = mongoose.model('Grid', gridSchema);
 
-// Sample object to pass
-// const obj = {
-//   PropertyID: 1,
-//   PropertyName: 'Test',
-//   PropertyLocation: 'NY',
-//   PropertyAllocation: 2,
-//   PropertyImages: ['url1', 'url2'],
-//   SimilarProperty: [2]
-// };
-
 const save = (obj) => {
   Grid.create(obj, (err, result) => {
     if (err) { throw err; }
