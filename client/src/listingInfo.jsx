@@ -7,6 +7,7 @@ const Container = styled.div`
   padding-top: 5.5px;
   padding-left: 4.4px;
   padding-bottom:8px;
+  background-color:#e3e1e1;
   &:hover {
     opacity: .6;
     cursor: pointer;

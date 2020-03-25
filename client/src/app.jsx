@@ -5,22 +5,19 @@ import styled from 'styled-components';
 import ListingInfo from './listingInfo';
 import CarouselWrapper from './carouselWrapper';
 import Names from '../propertyInfo';
-import Locations from '../propertyInfo';
 
 const PageContainer = styled.div`
-margin-left: 15px;
-margin-right: 15px;
+width:auto;
+font-family: Avenir-Heavy;
 `;
 
 const Text = styled.div`
 font-size: 28px;
-position:realtive;
-font-family: Avenir-Heavy;
-font-color: #343840;
 line-height: 32px;
 text-align: start;
 margin-bottom: 17px;
 margin-top:10px;
+text-align: center
 `;
 
 const Container = styled.div`
@@ -28,8 +25,14 @@ width: 299px;
 float:left;
 border: .4px solid white;
 margin-bottom: 25px;
-margin-right: 25px;
-background-color: white;
+margin-right: 15px;
+margin-left: 15px;
+background-color: #e3e1e1;
+`;
+const ImagesContainer = styled.div`
+margin-left:100px;
+margin-right:50px;
+min-width:500px;
 `;
 
 class App extends React.Component {
@@ -45,23 +48,25 @@ class App extends React.Component {
     const items = [];
     for (let i = 0; i <= 5; i += 1) {
       items.push(
-        <Container>
-          <CarouselWrapper propInfo={i} />
-          <ListingInfo
-            propName={this.state.propertyNames[i]}
-            propLocation={this.state.propertyLocations[i]}
-          />
-        </Container>
+          <Container className="Container" >
+            <CarouselWrapper propInfo={i} />
+            <ListingInfo
+              propName={this.state.propertyNames[i]}
+              propLocation={this.state.propertyLocations[i]}
+            />
+          </Container>
       );
     }
     return (
-      <PageContainer>
+      <PageContainer className="PageContainer" >
         <Text>
           Similar spaces you might also be interested in
         </Text>
-        {
-          items
-        }
+        <ImagesContainer className="ImgsContainer">
+          {
+            items
+          }
+          </ImagesContainer>
       </PageContainer>
     );
   }

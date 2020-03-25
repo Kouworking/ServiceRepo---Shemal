@@ -14,7 +14,6 @@ color: #fff;
 const RateBox = styled.div`
   position: absolute;
   font-weight:bold;
-  font-family: Avenir-Roman;
   top: 139px;
   left: 206px;
   border-radius: 2.5px;
@@ -114,7 +113,7 @@ class carouselWrapper extends React.Component {
       return <div> Loading </div>;
     }
     return (
-      <Carousel>
+      <Carousel className="Image">
         <RightArrow size="55" onClick={this.rightArrow} />
         <LeftArrow size="55" onClick={this.leftArrow} />
         <ListingImage
