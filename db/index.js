@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-//mongoose.connect('');
-mongoose.connect('mongodb://localhost/grid', { useNewUrlParser: true, useUnifiedTopology: true });
-
+mongoose.connect('mongodb://mongo', { useNewUrlParser: true })
+// .then(() => console.log('Connected')).
+// catch(err => console.log('Caught', err.stack))
+///localhost/gridmm, useUnifiedTopology: true
 const gridSchema = mongoose.Schema({
   PropertyID: Number,
   PropertyName: String,

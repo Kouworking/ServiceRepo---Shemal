@@ -73,7 +73,7 @@ class carouselWrapper extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: 'http://localhost:2729/getAllImages',
+      url: '/getAllImages',
       type: 'GET',
       success: (data) => {
         this.setState({ info: data });

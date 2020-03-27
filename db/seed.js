@@ -2,7 +2,6 @@
 const Faker = require('faker');
 const gridSave = require('./index');
 
-
 const getimage = (num) => {
   let string = '';
   let arr = [];
@@ -29,3 +28,6 @@ const seed = () => {
     });
   }
 };
+
+seed();
+

@@ -25,4 +25,4 @@ app.get('/getAllImages', (req, res) => {
 });
 
 
-app.listen(2729, () => console.log('Listening'));
+app.listen(2729, () => console.log('Listening on port 2729 test7'));

@@ -31,7 +31,6 @@
     "node-wget": "^0.4.3",
     "nodemon": "^2.0.2",
     "path": "^0.12.7",
-    "request": "^2.88.2",
     "styled-components": "^5.0.1",
     "styled-icons": "^10.2.1",
     "url": "^0.11.0",
