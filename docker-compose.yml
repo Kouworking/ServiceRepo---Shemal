@@ -1,13 +1,17 @@
-version: "2"
+version: "3.3"
 services:
   app:
     container_name: app
     restart: always
     build: .
     ports:
-      - "2729:2729"
+      - "80:2729"
     links:
       - mongo
+    depends_on:
+      - mongo
+    environment:
+      WAIT_HOSTS: mongo:27017
   mongo:
     container_name: mongo
     image: mongo

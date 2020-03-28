@@ -19,7 +19,8 @@ app.get('/FindID', (req, res) => {
 
 app.get('/getAllImages', (req, res) => {
   db.findAllObj((err, item) => {
-    if (err) throw err;
+    if (err) {console.log("DB error:", err)};
+    console.log('ALl images have been returned')
     res.send(item);
   });
 });

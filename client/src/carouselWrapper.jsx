@@ -73,7 +73,7 @@ class carouselWrapper extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/getAllImages',
+      url: 'http://ec2-54-183-168-120.us-west-1.compute.amazonaws.com/getAllImages',
       type: 'GET',
       success: (data) => {
         this.setState({ info: data });
@@ -83,7 +83,6 @@ class carouselWrapper extends React.Component {
 
   rightArrow() {
     const { length } = Images.propertyImages;
-    console.log(this.state.info)
     if (this.state.counter === length - 1) {
       this.setState((state) => ({
         counter: 0
