@@ -19,11 +19,14 @@ app.get('/FindID', (req, res) => {
 
 app.get('/getAllImages', (req, res) => {
   db.findAllObj((err, item) => {
-    if (err) {console.log("DB error:", err)};
+    if (err) {
+      console.log("DB error:", err)
+      res.sendStatus(400)
+    };
     console.log('ALl images have been returned')
     res.send(item);
   });
 });
 
 
-app.listen(2729, () => console.log('Listening on port 2729 test7'));
+app.listen(2729, () => console.log('Listening on port 2729 test8'));
